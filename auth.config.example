@@ -1,0 +1,5 @@
+key = "YourAppKey"
+secret = "YourSecret"
+token = "YourToken"
+oauth_token = "YourOAuthToken"
+oauth_token_secret = "YourOAuthTokenSecret"
