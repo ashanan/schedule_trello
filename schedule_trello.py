@@ -1,4 +1,5 @@
 from trello import TrelloClient
+import datetime
 
 #these can probably be replaced by list comprehensions
 def get_todo_list(board):
@@ -27,11 +28,17 @@ if __name__ == "__main__":
 
     client = TrelloClient(api_key=auth["key"], api_secret=auth["secret"], token=auth["oauth_token"], token_secret=auth["oauth_token_secret"])
 
+    now = datetime.datetime.now()
+    today = now.strftime("%A")
     boards = client.list_boards()
 
     for task in scheduled_tasks:
         board_name = task["board"]
         card_title = task["title"]
+        repeat_on = task["repeat_on"]
+
+        if repeat_on != today:
+            continue;
 
         for b in boards:
             if b.name == board_name:
@@ -40,8 +47,5 @@ if __name__ == "__main__":
 
                 card = get_card(cards, card_title)
                 if card is None:
-                    print "Card does not exist, adding it now."
                     todo_list.add_card(card_title, "Added by code!")
-                else:
-                    print "That card already exists"
 
