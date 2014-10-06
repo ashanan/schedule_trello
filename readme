@@ -1,3 +1,9 @@
+Run this script every day with cron:
+crontab -e
+0 5 * * * /full/path/to/schedule_trello.py
+(This will schedule it to run every day at 5 AM. See https://help.ubuntu.com/community/CronHowto for more info.)
+
+
 Depends on py-trello (https://github.com/sarumont/py-trello)
 
 Rename auth.config.example to auth.config and replace the placeholders with real values.
