@@ -1,0 +1,3 @@
+Depends on py-trello (https://github.com/sarumont/py-trello)
+
+Rename auth.config.example to auth.config and replace the placeholders with real values.
