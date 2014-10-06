@@ -1,12 +1,15 @@
 from trello import TrelloClient
 
+#these can probably be replaced by list comprehensions
 def get_todo_list(board):
     for l in board.open_lists():
         if l.name == "To Do":
           return l
 
 def get_card(cards, title):
-    for 
+    for card in cards:
+        if card.name == title:
+            return card
 
 if __name__ == "__main__":
     auth = {}
@@ -18,7 +21,7 @@ if __name__ == "__main__":
     print boards
 
     name = "Home"
-    cardTitle = "Fix mirror angle"
+    cardTitle = "Laundry"
 
     for b in boards:
         if b.name == name:
@@ -28,4 +31,9 @@ if __name__ == "__main__":
             cards = todo_list.list_cards()
             print cards
 
-            print get_card(cards, cardTitle)
+            card = get_card(cards, cardTitle)
+            if card is None:
+                print "Card does not exist"
+            else:
+                print card
+
