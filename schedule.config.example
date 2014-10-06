@@ -1,1 +1,1 @@
-tasks = [{ "board": "boardName", "title": "You new task", "repeat_on": "saturday" }]
+tasks = [{ "board": "boardName", "title": "You new task", "repeat_on": "Saturday" }]
