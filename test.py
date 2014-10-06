@@ -29,18 +29,19 @@ if __name__ == "__main__":
 
     boards = client.list_boards()
 
-    board_name = scheduled_tasks[0]["board"]
-    card_title = scheduled_tasks[0]["title"]
+    for task in scheduled_tasks:
+        board_name = task["board"]
+        card_title = task["title"]
 
-    for b in boards:
-        if b.name == board_name:
-            todo_list = get_todo_list(b)
-            cards = todo_list.list_cards()
+        for b in boards:
+            if b.name == board_name:
+                todo_list = get_todo_list(b)
+                cards = todo_list.list_cards()
 
-            card = get_card(cards, card_title)
-            if card is None:
-                print "Card does not exist, adding it now."
-                todo_list.add_card(card_title, "Added by code!")
-            else:
-                print "That card already exists"
+                card = get_card(cards, card_title)
+                if card is None:
+                    print "Card does not exist, adding it now."
+                    todo_list.add_card(card_title, "Added by code!")
+                else:
+                    print "That card already exists"
 
