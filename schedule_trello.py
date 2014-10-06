@@ -16,12 +16,12 @@ def get_card(cards, title):
 
 def load_auth():
     auth = {}
-    execfile("auth.config", auth) 
+    execfile("/absolute/path/to/auth.config", auth) 
     return auth
 
 def load_schedule():
     schedule = {}
-    execfile("schedule.config", schedule) 
+    execfile("/absolute/path/to/schedule.config", schedule) 
     return schedule
 
 if __name__ == "__main__":

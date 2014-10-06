@@ -6,3 +6,5 @@ crontab -e
 Depends on py-trello (https://github.com/sarumont/py-trello)
 
 Rename auth.config.example to auth.config and replace the placeholders with real values.
+
+Edit schedule_trello.py and replace "/absolute/path/to/" on lines 19 and 24 with the actual absolute path.  If you don't do this the script won't be able to find the config files when run by cron.
