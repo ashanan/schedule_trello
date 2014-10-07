@@ -6,12 +6,12 @@ import datetime
 #these can probably be replaced by list comprehensions
 def get_todo_list(board):
     for l in board.open_lists():
-        if l.name == "To Do":
+        if l.name.lower() == "to do":
           return l
 
 def get_card(cards, title):
     for card in cards:
-        if card.name == title:
+        if card.name.lower() == title.lower():
             return card
 
 def load_auth():
@@ -33,13 +33,13 @@ if __name__ == "__main__":
     now = datetime.datetime.now()
     today = now.strftime("%A")
     boards = client.list_boards()
-
+    
     for task in scheduled_tasks:
         board_name = task["board"]
         card_title = task["title"]
         repeat_on = task["repeat_on"]
 
-        if repeat_on != today:
+        if repeat_on.lower() != today.lower():
             continue;
 
         for b in boards:
